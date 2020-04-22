@@ -9,18 +9,20 @@ class Musician(models.Model):
 	def __str__(self):
 		return self.name
 
-class Song(models.Model):
-	artist = models.ForeignKey(Musician, on_delete = models.CASCADE)
-	name = models.CharField(max_length = 100)
-	num_stars = models.IntegerField()
-
-	def __str__(self):
-		return self.name
-
 class Album(models.Model):
-	song = models.ForeignKey(Song, on_delete = models.CASCADE)
-	name = models.CharField(max_length = 100)
-	num_stars = models.IntegerField()
+    name = models.CharField(max_length=100)
+    artist = models.ForeignKey(Musician, on_delete=models.CASCADE, null=True)
+    genre = models.CharField(max_length=50, null=True)
+    publish_date = models.DateField(blank=True, null=True)
 
-	def __str__(self):
-		return self.name
+    def __str__(self):
+      return self.name
+
+
+class Song(models.Model):
+    artist = models.ForeignKey(Musician, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    album = models.ForeignKey(Album, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.name
