@@ -5,7 +5,8 @@
 <p>{{ album.publish_date }}</p>
 <p>{{ album.genre }}</p>
 
-{% for song in albums_list %}
+{% for song in songs_list %}
+
 <ul>
 	<li><a href="{% url 'song_detail' song.id %}">{{ song.name }}</a></li>
 </ul>

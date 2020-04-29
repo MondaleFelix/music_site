@@ -11,7 +11,7 @@ class Musician(models.Model):
 
 class Album(models.Model):
     name = models.CharField(max_length=100)
-    artist = models.ForeignKey(Musician, on_delete=models.CASCADE, null=True)
+    artist = models.ForeignKey(Musician,on_delete=models.CASCADE, null=True)
     genre = models.CharField(max_length=50, null=True)
     publish_date = models.DateField(blank=True, null=True)
 
@@ -23,8 +23,8 @@ class Song(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE, null=True)
     artist = models.ForeignKey(Musician, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
-    num_stars = models.IntegerField()
-    length = models.IntegerField()
+    num_stars = models.IntegerField(default=3)
+    length = models.IntegerField(default=3)
 
     def __str__(self):
         return self.name

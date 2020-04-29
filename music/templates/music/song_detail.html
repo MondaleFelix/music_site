@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Song Info</h1>
+ <p>Name: {{song.name}}</p>
+ <p>Artist: {{song.artist}}</p>
+ <p>Album: {{song.album}}</p>
+ <p>Rating: {{song.num_stars}}</p>
+ <p>Length: {{song.length}}</p>
+{% endblock %}
+

@@ -26,9 +26,19 @@ def musician_detail(request, id):
 
 def album_detail(request, id):
 	name = Album.objects.get(id=id)
+	print(Song.objects.filter(album=name))
+
 
 	context = {
 		'album': Album.objects.get(id=id),
 		"songs_list": Song.objects.filter(album=name)
 	}
 	return render(request, 'music/album_detail.html',context = context)
+
+def song_detail(request, id):
+
+	context = {
+		
+		"song": Song.objects.get(id=id)
+	}
+	return render(request, 'music/song_detail.html',context = context)
