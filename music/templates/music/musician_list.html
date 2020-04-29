@@ -5,7 +5,7 @@
 <ul>
 	
 {% for musician in musicians %}
-	<li><a href="{% 'musician_detail' musician.id %}"></a>{{ musician.name }}</li>
+	<li><a href="{% url 'musician_detail' musician.id %}">{{ musician.name }}</a></li>
 {% endfor %}
 </ul>
 {% endblock %}
