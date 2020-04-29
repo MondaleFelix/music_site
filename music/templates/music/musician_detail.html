@@ -4,7 +4,9 @@
 <h1>{{ musician.name}}</h1>
 
 {% for album in albums_list %}
+<ul>
+	<li><a href="{% url 'album_detail' album.id %}">{{ album.name }}</a></li>
+</ul>
 
-<h3> {{ album.name  }}</h3>
 {% endfor %}
 {% endblock %}
